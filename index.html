@@ -13762,14 +13762,14 @@ exports.hackOptions = hackOptions;
 var hackOptions = {
     audio: {
         // Add entries for each audio file you want to use
-        'STERILE': { src: './background.mp3', loop: true },
-        'EXAMINATION': { src: './background.mp3', loop: true },
-        'MEMORIAL': { src: './background.mp3', loop: true },
-        'GUILT1': { src: './479930__thesoundmakerqueen__satan-sings-a-lullaby.mp3', loop: true },
-        'GUILT2': { src: './479930__thesoundmakerqueen__satan-sings-a-lullaby.mp3', loop: true },
-        'GUILT3': { src: './479930__thesoundmakerqueen__satan-sings-a-lullaby.mp3', loop: true },
-        'FAULT': { src: './fault.mp3', loop: true },
-        'END': { src: './479930__thesoundmakerqueen__satan-sings-a-lullaby.mp3', loop: true },
+        'STERILE': { src: './background.mp3', loop: true, resume: true },
+        'EXAMINATION': { src: './background.mp3', loop: true, resume: true },
+        'MEMORIAL': { src: './background.mp3', loop: true, resume: true },
+        'GUILT1': { src: './479930__thesoundmakerqueen__satan-sings-a-lullaby.mp3', loop: true, resume: true },
+        'GUILT2': { src: './479930__thesoundmakerqueen__satan-sings-a-lullaby.mp3', loop: true, resume: true },
+        'GUILT3': { src: './479930__thesoundmakerqueen__satan-sings-a-lullaby.mp3', loop: true, resume: true },
+        'FAULT': { src: './fault.mp3', loop: true, resume: true },
+        'END': { src: './479930__thesoundmakerqueen__satan-sings-a-lullaby.mp3', loop: true, resume: true },
         // Add more audio files as needed
     },
     musicByRoom: {
@@ -13787,6 +13787,9 @@ var hackOptions = {
     silenceId: 'S', // Use this song ID to make a room fall silent.
     resume: false, // If true, songs will pause/resume on change; otherwise, they'll stop/play (doesn't affect sound effects)
 };
+
+// Initialize audio for the first room (STERILE) when the game starts
+hackOptions.musicByRoom['0'] = 'STERILE';
 
 /**
  * Helper used to replace code in a script tag based on a search regex.
