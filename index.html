@@ -27584,10 +27584,10 @@ this.hacks = this.hacks || {};
 (function (exports, bitsy) {
 'use strict';
 var hackOptions = {
-	allowFollowerCollision: false, // if true, the player can walk into followers and talk to them (possible to get stuck this way)
-	followers: ['devil1', ‘devil2’, ‘devil3’, ‘devil4’, ‘devil5’], // ids or names of sprites to be followers; use [] to start without a follower
-	delay: 0, // delay between each follower step (0 is immediate, 400 is twice as slow as normal)
-	stack: true, // if true, followers stack on top of each other; otherwise, they will form a chain
+    allowFollowerCollision: false,
+    followers: ['devil1', 'devil2', 'devil3', 'devil4', 'devil5'], // Names of the sprites to be followers
+    delay: 0,
+    stack: true,
 };
 
 /**
