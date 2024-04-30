@@ -27617,7 +27617,7 @@ before('onPlayerUpdate', function() {
     // Loop through all sprites to determine which ones are devil sprites
     Object.values(sprite).forEach(function(spriteData) {
         // Check if the sprite's name starts with "devil"
-        if (spriteData.name && spriteData.name.startsWith('devil')) {
+        if (spriteData.name && spriteData.name.startsWith('devil1', 'devil2', 'devil3', 'devil4', 'devil5')) {
             // If the player is in the "UNVEIL" room, make devil sprites follow the player
             if (isInUnveilRoom) {
                 follow(spriteData.id);
