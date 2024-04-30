@@ -27586,70 +27586,39 @@ this.hacks = this.hacks || {};
 'use strict';
 var hackOptions = {
     allowFollowerCollision: false,
-    followers: ['devil1', 'devil2', 'devil3', 'devil4', 'devil5'], // Names of the sprites to be followers
-    delay: 0,
+    followers: [], // Names of the sprites to be followers
+    delay: 200,
     stack: true,
+    currentRoom: [],
 };
 
-/**
- * Helper used to replace code in a script tag based on a search regex.
- * To inject code without erasing original string, using capturing groups; e.g.
- * ```js
- * inject(/(some string)/,'injected before $1 injected after');
- * ```
- * @param searcher Regex to search and replace
- * @param replacer Replacer string/fn
- */
-	// Define a variable to store the current room ID
-var currentRoomId = '';
+if (currentRoom === 'UNVEIL') {
+    hackOptions.followers = ['devil1', 'devil2', 'devil3', 'devil4', 'devil5'];
+}
 
-// Hook into the `movePlayer` function to detect room changes
-before('movePlayer', function(roomId) {
-    // Update the current room ID when the player moves to a new room
-    currentRoomId = roomId;
-});
 
-// Override the `onPlayerUpdate` function to control sprite behavior
-before('onPlayerUpdate', function() {
-    // Check if the player is in the "UNVEIL" room
-    var isInUnveilRoom = currentRoomId === 'UNVEIL';
-
-    // Loop through all sprites to determine which ones are devil sprites
-    Object.values(sprite).forEach(function(spriteData) {
-        // Check if the sprite's name matches "devil1" to "devil5"
-        if (['devil1', 'devil2', 'devil3', 'devil4', 'devil5'].includes(spriteData.name)) {
-            // If the player is in the "UNVEIL" room, make devil sprites follow the player
-            if (isInUnveilRoom) {
-                follow(spriteData.id);
-            } else {
-                // If the player is not in the "UNVEIL" room, stop devil sprites from following
-                stopFollowing(spriteData.id);
-            }
-        }
-    });
-});
 
 // Function to make a sprite follow the player
 function follow(spriteId) {
-    // Example: Move the sprite towards the player's position
-    var playerX = player().x;
-    var playerY = player().y;
-    var spriteX = sprite[spriteId].x;
-    var spriteY = sprite[spriteId].y;
+  var playerX = player().x;
+  var playerY = player().y;
+  var spriteX = sprite[spriteId].x;
+  var spriteY = sprite[spriteId].y;
 
-    // Calculate the direction vector towards the player
-    var dx = playerX - spriteX;
-    var dy = playerY - spriteY;
+  var dx = playerX - spriteX;
+  var dy = playerY - spriteY;
+  var distance = Math.sqrt(dx * dx + dy * dy);
 
-    // Normalize the direction vector
-    var length = Math.sqrt(dx * dx + dy * dy);
-    dx /= length;
-    dy /= length;
+  // Normalize for consistent speed
+  if (distance > 0) { 
+    dx /= distance;
+    dy /= distance;
+  }
 
-    // Move the sprite towards the player
-    sprite[spriteId].x += dx * sprite[spriteId].speed;
-    sprite[spriteId].y += dy * sprite[spriteId].speed;
+  sprite[spriteId].x += dx * sprite[spriteId].speed;
+  sprite[spriteId].y += dy * sprite[spriteId].speed;
 }
+
 
 // Function to stop a sprite from following the player
 function stopFollowing(spriteId) {
