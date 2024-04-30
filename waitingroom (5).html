@@ -26323,13 +26323,39 @@ HOW TO USE:
 this.hacks = this.hacks || {};
 (function (exports, bitsy) {
 'use strict';
-var hackOptions =  {
-    allowFollowerCollision: false,
-    followers: [],
+var hackOptions = {
+	allowFollowerCollision: false,
+    followers: [], // Names of the sprites to be followers
     delay: 200,
-    stack: false,
+    stack: true,
+    currentRoom: [],
 };
 
+// Hook into the `movePlayer` function to detect room changes
+before('movePlayer', function(roomId) {
+    // Update the current room ID when the player moves to a new room
+    hackOptions.currentRoom = roomId;
+});
+
+// Override the `onPlayerUpdate` function to control sprite behavior
+before('onPlayerUpdate', function() {
+    // Check if the player is in the "UNVEIL" room
+    var isInUnveilRoom = hackOptions.currentRoom === 'UNVEIL';
+
+    // If the player is not in the "UNVEIL" room, do nothing
+    if (!isInUnveilRoom) {
+        return;
+    }
+
+    // Loop through all sprites to determine which ones are devil sprites
+    Object.values(sprite).forEach(function(spriteData) {
+        // Check if the sprite's name starts with "devil"
+        if (spriteData.name && spriteData.name.startsWith('devil')) {
+            // If the player is in the "UNVEIL" room, make devil sprites follow the player
+            follow(spriteData.id);
+        }
+    });
+});
 /**
  * Helper used to replace code in a script tag based on a search regex.
  * To inject code without erasing original string, using capturing groups; e.g.
