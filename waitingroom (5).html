@@ -13873,6 +13873,7 @@ SPR 13
 00100100
 00100100
 NAME devil2
+DLG v
 POS 8 1,4
 
 SPR 14
@@ -13885,6 +13886,7 @@ SPR 14
 00100100
 00100100
 NAME devil3
+DLG u
 POS 8 15,5
 
 SPR 15
@@ -13897,6 +13899,7 @@ SPR 15
 00100100
 00100100
 NAME devil4
+DLG t
 POS 8 1,12
 
 SPR 16
@@ -13909,6 +13912,7 @@ SPR 16
 00100100
 00100100
 NAME devil5
+DLG s
 POS 8 8,15
 
 SPR A
@@ -14390,20 +14394,56 @@ You cannot change the past, but only you can decide how your future will be like
 NAME kids dialog
 
 DLG q
+"""
+ (when (player enters "UNVEIL")
+  (followerNow "devil1")
 
+"""
 NAME devil1 dialog
 
 DLG r
 """
  (when (player enters "UNVEIL")
-  (follower "devil1")
-  (follower "devil2")
-  (follower "devil3")
-  (follower "devil4")
-  (follower "devil5")
+  (followerNow "devil1")
+  (followerNow "devil2")
+  (followerNow "devil3")
+  (followerNow "devil4")
+  (followerNow "devil5")
 )
 """
 NAME UNVEIL dialog
+
+DLG s
+"""
+ (when (player enters "UNVEIL")
+  (followerNow "devil5")
+)
+"""
+NAME devil5 dialog
+
+DLG t
+"""
+ (when (player enters "UNVEIL")
+  (followerNow "devil4")
+)
+"""
+NAME devil4 dialog
+
+DLG u
+"""
+ (when (player enters "UNVEIL")
+  (followerNow "devil3")
+)
+"""
+NAME devil3 dialog
+
+DLG v
+"""
+ (when (player enters "UNVEIL")
+  (followerNow "devil2")
+)
+"""
+NAME devil2 dialog
 
 VAR a
 42
@@ -26272,6 +26312,7 @@ CHAR 9835
 011000
 000000
 </script>
+
 <!-- BORKSY HACKS -->
 <script type="text/javascript" id="borksyHacks">
 /**
@@ -26921,6 +26962,4 @@ exports.hackOptions = hackOptions;
 
 
 </html>
-
-
 
