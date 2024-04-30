@@ -26686,7 +26686,20 @@ function takeStep() {
 
 after('loadWorldFromGameData', function () {
 	hackOptions.followers.forEach(setFollower);
-
+	
+	if (bitsy.state.room === 'UNVEIL') {
+        hackOptions.followers.forEach(setFollower);
+		
+	bitsy.sprite['devil1'].x = 8; // Set x position to 32 pixels
+        bitsy.sprite['devil1'].y = 0;
+	bitsy.sprite['devil2'].x = 1; // Set x position to 32 pixels
+        bitsy.sprite['devil2'].y = 4;
+	bitsy.sprite['devil3'].x = 15; // Set x position to 32 pixels
+        bitsy.sprite['devil3'].y = 5;
+	bitsy.sprite['devil4'].x = 1; // Set x position to 32 pixels
+        bitsy.sprite['devil4'].y = 11;
+	bitsy.sprite['devil5'].x = 8; // Set x position to 32 pixels
+        bitsy.sprite['devil5'].y = 15;
 	// remove + add player to sprite list to force rendering them on top of followers
 	var p = bitsy.sprite[bitsy.playerId];
 	delete bitsy.sprite[bitsy.playerId];
