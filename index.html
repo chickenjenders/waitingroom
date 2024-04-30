@@ -27617,7 +27617,7 @@ before('onPlayerUpdate', function() {
     // Loop through all sprites to determine which ones are devil sprites
     Object.values(sprite).forEach(function(spriteData) {
         // Check if the sprite's name starts with "devil"
-        if (spriteData.name && spriteData.name.startsWith('devil1', 'devil2', 'devil3', 'devil4', 'devil5')) {
+        if (spriteData.name && spriteData.name.startsWith('devil')) {
             // If the player is in the "UNVEIL" room, make devil sprites follow the player
             if (isInUnveilRoom) {
                 follow(spriteData.id);
@@ -27628,18 +27628,35 @@ before('onPlayerUpdate', function() {
         }
     });
 });
-
 // Function to make a sprite follow the player
 function follow(spriteId) {
-    // Implement the logic to make the sprite follow the player here
-    // You can use existing logic from the follower hack or customize it as needed
+    // Example: Move the sprite towards the player's position
+    var playerX = player().x;
+    var playerY = player().y;
+    var spriteX = sprite[spriteId].x;
+    var spriteY = sprite[spriteId].y;
+
+    // Calculate the direction vector towards the player
+    var dx = playerX - spriteX;
+    var dy = playerY - spriteY;
+
+    // Normalize the direction vector
+    var length = Math.sqrt(dx * dx + dy * dy);
+    dx /= length;
+    dy /= length;
+
+    // Move the sprite towards the player
+    sprite[spriteId].x += dx * sprite[spriteId].speed;
+    sprite[spriteId].y += dy * sprite[spriteId].speed;
 }
 
 // Function to stop a sprite from following the player
 function stopFollowing(spriteId) {
-    // Implement the logic to stop the sprite from following the player here
-    // You can use existing logic from the follower hack or customize it as needed
+    // Example: Reset the sprite's position to its original position
+    sprite[spriteId].x = sprite[spriteId].startX;
+    sprite[spriteId].y = sprite[spriteId].startY;
 }
+
 
 function inject$1(searcher, replacer) {
     // find the relevant script tag
