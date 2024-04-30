@@ -27585,10 +27585,27 @@ this.hacks = this.hacks || {};
 'use strict';
 var hackOptions = {
     allowFollowerCollision: false,
-    followers: ['devil1', 'devil2', 'devil3', 'devil4', 'devil5'], // Names of the sprites to be followers
+    followers: [], // Start with an empty array
     delay: 0,
     stack: true,
 };
+
+// Function to set followers based on player's room
+function setFollowersBasedOnRoom() {
+    if (bitsy.room[bitsy.player().room].name === "UNVEIL") {
+        // Add the devil sprites as followers
+        hackOptions.followers = ['devil1', 'devil2', 'devil3', 'devil4', 'devil5'];
+    } else {
+        // Remove all followers if the player is not in the "UNVEIL" room
+        hackOptions.followers = [];
+    }
+}
+
+// Hook into Bitsy's game loop to update followers based on player's room
+after('update', function () {
+    setFollowersBasedOnRoom();
+});
+
 
 /**
  * Helper used to replace code in a script tag based on a search regex.
