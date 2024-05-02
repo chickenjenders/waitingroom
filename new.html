@@ -14659,9 +14659,8 @@ NAME devil3 dialog
 
 DLG v
 """
- (when (player enters "UNVEIL")
-  (followerNow "devil2")
-)
+(follower "devil2")
+
 """
 NAME devil2 dialog
 
@@ -14788,19 +14787,17 @@ NAME pick up key
 ENV 99 65 6 96 152
 BEAT 95 0
 SQR P4
-
-
 </script>
 
   <style>
     html {
-      margin: 0px;
-      padding: 0px;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0px;
-      padding: 0px;
+      margin: 0;
+      padding: 0;
       overflow: hidden;
       background: #ffffff;
     }
@@ -14811,6 +14808,17 @@ SQR P4
       max-width: 100vh;
       margin: auto;
       display: block;
+      touch-action: none;
+      /* fixing touch-input errors in chrome */
+
+      /* sharp pixel edges */
+      /* https://caniuse.com/#search=image-render */
+      -ms-interpolation-mode: nearest-neighbor;
+      /* IE */
+      image-rendering: -moz-crisp-edges;
+      /* FF 6.0+ */
+      image-rendering: pixelated;
+      /* Chrome, Safari */
     }
   </style>
 
@@ -15756,7 +15764,6 @@ SQR P4
 
         // disable sound
         sound.mute();
-
         self._active = false;
       };
 
@@ -16016,6 +16023,15 @@ SQR P4
         }
 
         self._free(tile);
+      };
+
+      this.deleteAllTiles = function () {
+        if (tilePoolStart != null) {
+          for (var i = 0; i < tilePoolSize; i++) {
+            var tile = tilePoolStart + i;
+            this.delete(tile);
+          }
+        }
       };
 
       this.fill = function (block, value) {
@@ -22366,13 +22382,7 @@ SQR P4
       // todo : forceReset option is hacky?
       this.ClearCache = function (forceReset) {
         if (forceReset === undefined || forceReset === true) {
-          // delete all tiles from system memory before clearing the cache
-          for (var cacheId in drawingCache.render) {
-            var tiles = drawingCache.render[cacheId];
-            for (var i = 0; i < tiles.length; i++) {
-              bitsy.delete(tiles[i]);
-            }
-          }
+          bitsy.deleteAllTiles();
         }
 
         drawingCache.render = {};
@@ -26531,6 +26541,7 @@ CHAR 9835
 011000
 000000
 </script>
+
   <!-- BORKSY HACKS -->
   <script type="text/javascript" id="borksyHacks">
     /**
@@ -26583,6 +26594,7 @@ CHAR 9835
     (function (exports, bitsy) {
       'use strict';
       var hackOptions = {
+
         allowFollowerCollision: false, // if true, the player can walk into followers and talk to them (possible to get stuck this way)
         followers: ['devil1', 'devil2', 'devil3', 'devil4', 'devil5'], // ids or names of sprites to be followers; use [] to start without a follower
         delay: 200, // delay between each follower step (0 is immediate, 400 is twice as slow as normal)
@@ -26970,19 +26982,10 @@ CHAR 9835
 
 
       var followers = [];
-      var followerPositions = [
-        { x: 8, y: 0 },
-        { x: 1, y: 4 },
-        { x: 15, y: 5 },
-        { x: 1, y: 12 },
-        { x: 8, y: 15 }
-      ]
       var paths = {};
-      "devil1"
+
       function setFollower(followerName) {
         var follower = followerName && getImage(followerName, bitsy.sprite);
-
-        const followerIndex = Number.parseInt(follower.name.at(-1)) - 1;
         if (!follower) {
           throw new Error('Failed to find sprite with id/name "' + followerName + '"');
         }
@@ -26992,7 +26995,7 @@ CHAR 9835
         } else {
           followers.push(follower);
         }
-        paths[follower.id] = paths[follower.id] || []
+        paths[follower.id] = paths[follower.id] || [];
         takeStep();
       }
 
@@ -27031,25 +27034,19 @@ CHAR 9835
         py = bitsy.player().y;
       });
       let movedFollower = false;
-
       after('bitsy._update', function () {
         let room = bitsy.player().room;
         if (room !== "8") return;
-        console.log("room")
         if (shouldWalk) {
           shouldWalk = false;
           let takeAnother = false;
           followers.forEach(function (follower) {
             var path = paths[follower.id];
             var point = path.shift();
-            console.log("sdjafojsldf", JSON.stringify(follower, null, 2))
-            // const followerIndex = Number.parseInt(follower.name.at(-1)) - 1;
-            // let point = followerPositions[followerIndex];
             if (point) {
               follower.x = point.x;
               follower.y = point.y;
               follower.room = point.room;
-              console.log("follower room", follower.room)
             }
             walking = false;
             if (path.length) {
@@ -27058,7 +27055,6 @@ CHAR 9835
           });
           bitsy.drawRoom(bitsy.room[bitsy.state.room], { redrawAll: true });
           if (takeAnother) {
-
             takeStep();
           }
         }
@@ -27198,8 +27194,8 @@ CHAR 9835
         var player = bitsy.player();
         followers.forEach(function (follower) {
           follower.room = player.room;
-          follower.x = 0;
-          follower.y = 0;
+          follower.x = player.x;
+          follower.y = player.y;
           paths[follower.id].length = 0;
         });
         bitsy.drawRoom(bitsy.room[bitsy.state.room], { redrawAll: true });
