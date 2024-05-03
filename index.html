@@ -7,10 +7,10 @@
 
   <meta charset="UTF-8">
 
-  <title></title>
+  <title>Waiting Room</title>
 
   <script type="text/bitsyGameData" id="exportedGameData">
-
+Waiting Room
 
 # BITSY VERSION 8.11
 
@@ -21,7 +21,7 @@
 ! TXT_MODE 0
 
 PAL 0
-249,247,254
+250,249,254
 0,0,0
 0,0,0
 NAME room1
@@ -61,6 +61,12 @@ PAL 6
 255,15,5
 246,245,254
 NAME hell
+
+PAL 7
+188,229,255
+250,244,255
+162,197,220
+NAME ending
 
 ROOM 0
 g,e,0,w,0,e,e,e,e,e,e,e,e,e,e,h
@@ -217,30 +223,10 @@ y3,y3,0,y3,y3,y3,0,y3,0,y3,0,y3,0,0,y3,0
 y3,0,0,y3,0,y3,0,y3,0,y3,0,y3,0,0,y3,0
 y3,0,0,y3,0,y3,0,y3,y3,y3,0,y3,y3,0,y3,0
 NAME FAULT
+ITM 8 8,8
+ITM 8 7,8
 EXT 15,8 8 8,7
 PAL 3
-
-ROOM 7
-0,0,0,0,0,0,0,w,0,0,0,0,0,0,0,0
-0,0,0,0,0,0,0,b,0,0,0,0,0,0,0,0
-0,0,0,0,0,15,16,17,18,19,0,0,0,0,0,0
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-0,0,0,0,0,15,16,1a,1b,19,0,0,0,0,0,0
-0,0,0,0,0,0,0,10,0,0,0,0,0,0,0,0
-0,0,0,0,0,0,0,x,0,0,0,0,0,0,0,0
-NAME END
-END 7 7,15
-END 8 7,0
-PAL 4
 
 ROOM 8
 0,0,0,0,0,0,xy,0,xy,0,xy,0,0,0,0,0
@@ -302,8 +288,32 @@ ROOM 11
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 NAME CONSIDER
-EXT 8,0 7 7,8
+EXT 8,0 12 8,15 FX fade_w
 PAL 0
+
+ROOM 12
+0,0,0,0,123,112,112,15e,15e,112,112,122,0,0,0,0
+0,0,123,112,11,11,11,11,11,11,11,11,112,122,0,0
+0,0,11,11,11,11,11,144,143,11,11,11,11,110,0,0
+0,123,11,11,11,11,142,0,0,138,11,11,11,11,122,0
+0,11,11,11,11,11,11,0,0,11,11,11,11,11,110,0
+15b,11,11,11,11,11,11,0,0,11,11,11,11,11,11,122
+111,11,11,11,11,11,11,11,11,11,11,11,11,11,11,110
+115,113,113,113,113,113,113,113,113,113,113,113,113,113,113,114
+0,150,150,150,150,150,150,150,150,150,150,150,150,150,150,0
+0,0,0,0,151,149,0,0,0,0,148,151,0,0,0,0
+0,0,0,137,152,157,157,157,157,157,157,15a,15d,0,0,0
+0,0,137,137,152,157,157,157,157,157,157,15a,15d,15d,0,0
+0,137,137,137,152,157,157,157,157,157,157,15a,15d,15d,15d,0
+137,137,137,137,152,157,157,157,157,157,157,15a,15d,15d,15d,15d
+137,137,137,137,152,157,157,157,157,157,157,15a,15d,15d,15d,15d
+137,137,137,137,152,157,157,15f,15f,157,157,15a,15d,15d,15d,15d
+NAME END
+ITM 7 8,4
+ITM 7 7,4
+END x 8,15
+END y 8,0
+PAL 7
 
 TIL 1
 11111110
@@ -1413,6 +1423,629 @@ TIL 99
 11111111
 NAME hell 297
 
+TIL 100
+11000000
+11000000
+00000100
+00000000
+00000000
+00000000
+00000000
+00000000
+NAME ending (2,9)
+
+TIL 101
+00111111
+00001111
+00000111
+00000111
+00000011
+00000000
+00000000
+00000000
+NAME ending (5,9)
+
+TIL 102
+11111111
+11111111
+11111111
+11111111
+11111111
+00111111
+11111111
+01111111
+NAME ending (8,9)
+
+TIL 103
+11111111
+11111111
+11111111
+11111111
+11111111
+11111111
+11111111
+11111100
+NAME ending (9,9)
+
+TIL 104
+11111111
+11111111
+11111111
+11110000
+11000000
+10000000
+10000100
+01100110
+NAME ending (10,9)
+
+TIL 105
+11111110
+11110000
+00000000
+00000000
+00000000
+00000000
+00000001
+00000011
+NAME ending (11,9)
+
+TIL 106
+00000001
+00000011
+00000011
+00000111
+01111111
+11111111
+11111111
+11111100
+NAME ending (12,9)
+
+TIL 107
+00000000
+00000000
+00000000
+11111000
+11111110
+11111100
+11111100
+11110000
+NAME ending (13,9)
+
+TIL 108
+00000011
+11111111
+11111110
+11111110
+11111110
+11111110
+11111110
+11111110
+NAME ending (4,10)
+
+TIL 109
+00000000
+00011111
+00111111
+01111111
+01111111
+01111111
+01111111
+01111111
+NAME ending (5,10)
+
+TIL 110
+11111110
+11111110
+11111110
+11111110
+11111110
+11111110
+11111110
+11111110
+NAME curve4
+
+TIL 111
+01111111
+01111111
+01111111
+01111111
+01111111
+01111111
+01111111
+01111111
+NAME curve3
+
+TIL 112
+00000000
+11111111
+11111111
+11111111
+11111111
+11111111
+11111111
+11111111
+NAME curve2
+
+TIL 113
+11111111
+11111111
+11111111
+11111111
+11111111
+11111111
+11111111
+00000000
+NAME curve1
+
+TIL 114
+11111110
+11111110
+11111110
+11111110
+11111110
+11111100
+11111000
+00000000
+NAME round2
+
+TIL 115
+01111111
+01111111
+01111111
+01111111
+00111111
+00011111
+00001111
+00000000
+NAME round1
+
+TIL 116
+00000001
+00000011
+00000111
+00000110
+00001100
+00001100
+00001000
+00001100
+NAME ending (13,12)
+
+TIL 117
+11111100
+01111110
+00000011
+00000001
+00000000
+00000000
+00000001
+00000011
+NAME ending (0,13)
+
+TIL 118
+00000000
+00000000
+00000000
+00000000
+00000001
+11110011
+11111111
+11111111
+NAME ending (1,13)
+
+TIL 119
+00000000
+00000000
+00000000
+00000000
+00000000
+11000000
+11100000
+11100000
+NAME ending (2,13)
+
+TIL 120
+11111111
+11111111
+10000001
+00000000
+00000000
+00000000
+00000000
+00000000
+NAME ending (6,15)
+
+TIL 121
+11111000
+11111100
+11100000
+00000000
+00000000
+00000000
+00000000
+00000000
+NAME ending (7,15)
+
+TIL 122
+00000000
+11110000
+11111000
+11111100
+11111110
+11111110
+11111110
+11111110
+NAME ending (8,15)
+
+TIL 123
+00000000
+00001111
+00111111
+01111111
+01111111
+11111111
+11111111
+11111111
+NAME ending (9,15)
+
+TIL 124
+11111111
+11111111
+00111111
+00000000
+00000000
+00000000
+00000000
+00000000
+NAME ending (10,15)
+
+TIL 125
+11111111
+11111111
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+NAME ending (11,15)
+
+TIL 126
+11100000
+11100000
+11110000
+01111000
+01111000
+00111100
+00011100
+00010000
+NAME ending (12,15)
+
+TIL 127
+00010000
+00010000
+00010000
+00010000
+00010000
+00010000
+00110000
+00110000
+NAME ending (8,0)
+
+TIL 128
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+00110000
+NAME ending (14,0)
+
+TIL 129
+00000000
+00000000
+00000000
+00000000
+00000000
+00100000
+00110000
+00010000
+NAME ending (4,1)
+
+TIL 130
+00000000
+00001000
+11111100
+11111001
+11100110
+11111000
+11110000
+11100000
+NAME ending (13,4)
+
+TIL 131
+11110000
+11111100
+00111111
+00011111
+00000111
+00000111
+00001111
+00001111
+NAME ending (0,5)
+
+TIL 132
+00000001
+11111000
+11111111
+01111111
+00111111
+00011111
+00001111
+00000111
+NAME ending (3,5)
+
+TIL 133
+11111111
+11111111
+11111110
+11111100
+11111100
+11111110
+11111110
+11111110
+NAME ending (12,5)
+
+TIL 134
+00000000
+00000000
+00000000
+00000000
+00000000
+00000010
+00110011
+01000001
+NAME ending (14,5)
+
+TIL 135
+00000000
+00000011
+00000111
+00110000
+00000000
+00000000
+10000000
+10000000
+NAME ending (15,5)
+
+TIL 136
+00011111
+00111111
+00011111
+00000111
+00000111
+00011111
+00000111
+11111111
+NAME ending (0,6)
+
+TIL 137
+00000111
+00001000
+00000100
+01100110
+10110010
+10001110
+10000000
+11000000
+>
+00000011
+00000001
+01111001
+01001111
+00110000
+00011000
+11001000
+00111000
+NAME ending (1,6)
+
+TIL 138
+11111111
+01111111
+00111111
+00011111
+00001111
+00000111
+00000011
+00000001
+NAME ending (3,6)
+
+TIL 139
+11111111
+11111110
+11111100
+11111000
+11110000
+11100000
+11000000
+10000000
+NAME ending (12,6)
+
+TIL 140
+01111111
+00111111
+00011111
+00001111
+00000111
+00000011
+00000001
+00000000
+NAME 555
+
+TIL 141
+00000000
+10000000
+11000000
+11100000
+11110000
+11111000
+11111100
+11111111
+NAME ending (11,10)
+
+TIL 142
+11111111
+11111110
+11111100
+11111000
+11110000
+11100000
+11000000
+10000000
+NAME ending (12,10)
+
+TIL 143
+11111111
+01111111
+00111111
+00011111
+00001111
+00000111
+00000011
+00000001
+NAME ending (13,10)
+
+TIL 144
+11111111
+11111110
+11111100
+11111000
+11110000
+11100000
+11000000
+10000000
+NAME ending (2,11)
+
+TIL 145
+00111000
+01000110
+01000010
+10000001
+10000001
+11000011
+01000010
+00111100
+NAME ending (3,11)
+
+TIL 146
+00111100
+01000010
+10000001
+10000001
+10000001
+01000010
+01100110
+00011000
+NAME ending (4,11)
+
+TIL 147
+00100100
+01000010
+11000011
+10000001
+10000001
+10000001
+11000011
+01111110
+NAME ending (5,11)
+
+TIL 148
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+00001111
+00001111
+NAME ending (6,11)
+
+TIL 149
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+11111000
+11111000
+NAME ending (7,11)
+
+TIL 150
+01000001
+01000001
+01100011
+00100010
+00110110
+00010100
+00001000
+00000000
+>
+01000001
+01000001
+01000001
+01100011
+00100010
+00110110
+00011100
+00001000
+NAME ending (9,13)
+
+TIL 151
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+11111111
+11111111
+NAME ending (10,13)
+
+TIL 152
+11000001
+11100001
+11100001
+11110001
+11011001
+11001101
+11000111
+11000011
+NAME railingl
+
+TIL 157
+00000000
+10000010
+01000001
+01111111
+00000000
+10000010
+01000001
+01111111
+NAME ending (2,14)
+
+TIL a
+11110000
+11100000
+11100000
+11000000
+11000000
+10001000
+10011000
+00011000
+NAME hell 10
+
 TIL b
 00000000
 01111110
@@ -1551,6 +2184,28 @@ TIL l
 00000000
 NAME chair 2
 
+TIL m
+00000001
+00000000
+00000001
+00000011
+00000001
+00000001
+00000000
+00000010
+NAME hell 11
+
+TIL n
+11111111
+11111111
+11111111
+11111111
+11111111
+11111110
+11111110
+11111110
+NAME hell 12
+
 TIL o
 00000000
 00000000
@@ -1561,6 +2216,17 @@ TIL o
 00011000
 00100100
 NAME bear
+
+TIL p
+11111111
+11111111
+11111101
+11111100
+11111000
+11110001
+11110001
+11100011
+NAME hell 13
 
 TIL q
 00000000
@@ -1583,6 +2249,17 @@ TIL r
 00111000
 00010000
 NAME flower
+
+TIL s
+00010000
+11110000
+11110000
+11100000
+11100000
+11100000
+11000000
+11000000
+NAME hell 14
 
 TIL t
 01111010
@@ -1695,6 +2372,28 @@ TIL 1c
 NAME cans
 WAL false
 
+TIL 1d
+11111111
+11111011
+11111001
+11100111
+11100110
+11000100
+10000000
+00000001
+NAME hell 15
+
+TIL 1e
+11111110
+11111110
+11111100
+11111100
+11111100
+11110100
+11100000
+11000000
+NAME hell 16
+
 TIL 1f
 00100100
 00100100
@@ -1724,83 +2423,6 @@ TIL 1g
 00000000
 00000000
 NAME flash1
-
-TIL a
-11110000
-11100000
-11100000
-11000000
-11000000
-10001000
-10011000
-00011000
-NAME hell 10
-
-TIL m
-00000001
-00000000
-00000001
-00000011
-00000001
-00000001
-00000000
-00000010
-NAME hell 11
-
-TIL n
-11111111
-11111111
-11111111
-11111111
-11111111
-11111110
-11111110
-11111110
-NAME hell 12
-
-TIL p
-11111111
-11111111
-11111101
-11111100
-11111000
-11110001
-11110001
-11100011
-NAME hell 13
-
-TIL s
-00010000
-11110000
-11110000
-11100000
-11100000
-11100000
-11000000
-11000000
-NAME hell 14
-
-TIL 1d
-11111111
-11111011
-11111001
-11100111
-11100110
-11000100
-10000000
-00000001
-NAME hell 15
-
-TIL 1e
-11111110
-11111110
-11111100
-11111100
-11111100
-11110100
-11100000
-11000000
-NAME hell 16
 
 TIL 1h
 11111111
@@ -13843,25 +14465,25 @@ TIL y0
 NAME light2
 
 TIL y1
-00000000
-00000000
-00000000
-00000000
-00001001
-00000101
-00000011
+11000000
+11100011
+01110011
+00111011
+00011111
 00001111
+01111111
+01111111
 NAME over here
 
 TIL y2
-01100011
-00010100
-00001000
-00000000
-00000000
-00000000
-00000000
-00000000
+00111000
+01111100
+11111110
+00111000
+00111000
+00111000
+00111000
+00111000
 NAME here
 
 TIL y3
@@ -13973,6 +14595,69 @@ TIL y8
 00000000
 00000000
 
+TIL 15a
+10000011
+10000111
+10001111
+10011011
+10110011
+11100011
+11000011
+10000011
+NAME railingr
+
+TIL 15b
+00000000
+00001111
+00111111
+01111111
+01111111
+01111111
+01111111
+01111111
+NAME extra
+
+TIL 15d
+11110000
+00110000
+01100000
+01000111
+11011001
+11110010
+00000010
+00000011
+>
+10011100
+10110100
+11100100
+00011000
+00010011
+00110111
+00111101
+00000010
+
+TIL 15e
+00000000
+11111111
+11111111
+11111111
+11111111
+11111111
+11111111
+11111111
+NAME forgive
+
+TIL 15f
+00000000
+10000010
+01000001
+01111111
+00000000
+10000010
+01000001
+01111111
+NAME forget
+
 SPR 10
 00000000
 00000000
@@ -14028,7 +14713,7 @@ SPR 12
 00100100
 NAME devil1
 DLG q
-POS 8 8,0
+POS 8 6,0
 
 SPR 13
 00100100
@@ -14072,7 +14757,7 @@ SPR 14
 00100100
 NAME devil3
 DLG u
-POS 8 15,4
+POS 8 12,1
 
 SPR 15
 00100100
@@ -14116,7 +14801,7 @@ SPR 16
 00100100
 NAME devil5
 DLG s
-POS 8 8,15
+POS 8 15,6
 
 SPR A
 00011000
@@ -14137,6 +14822,7 @@ SPR A
 00100100
 00100100
 POS 0 15,1
+ITM 7 1
 
 SPR d
 01111110
@@ -14528,6 +15214,30 @@ ITM 6
 NAME car
 DLG g
 
+ITM 7
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+NAME end
+DLG w
+
+ITM 8
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+NAME stuck
+DLG z
+
 DLG 3
 A newspaper with a front page article reading "Still no suspects in the ongoing case of a hit and run that left 6 year old Jess Fielder dead on the street. Police are asking witnesses to call 911 with any information that could lead to an arrest."
 NAME letter dialog
@@ -14553,7 +15263,7 @@ DLG 8
 NAME ending 3
 
 DLG 9
--How did I get here?{pg}Sir, are you okay?{pg}-... I don't know how I got here.{pg}*I should probably leave him alone.
+-What is this place?{pg}...It's a waiting room.{pg}-What am I waiting for?{pg}I... don't know.
 NAME person1 dialog
 
 DLG c
@@ -14573,11 +15283,11 @@ A stuffed bunny toy with what looks like blood stains.
 NAME bun dialog
 
 DLG g
-A toy car... it looks like my car.
+A toy car... that looks like my car.
 NAME car dialog
 
 DLG h
-Beer cans.
+Empty beer cans.
 NAME sprite x dialog
 
 DLG i
@@ -14588,11 +15298,11 @@ We regret to inform you that your employment with Smith Solutions has been termi
 NAME item 4 dialog
 
 DLG j
--This place... {shk}THEY WON"T LET ME LEAVE!{/shk}{pg}What?{pg}-{shk}I CAN'T GET OUT OF HERE! I DIDN'T DO ANYTHING WRONG!{/shk}{pg}...
+{shk}THEY WON"T LET ME LEAVE!{/shk}{pg}{shk}I CAN'T GET OUT OF HERE! {/shk}{pg}{shk}I DIDN'T DO ANYTHING WRONG!{/shk}{pg}...
 NAME person 2 dialog
 
 DLG k
--There's only one way to leave.{pg}Where is this place?{pg}-You have to face what you've done.{pg}I don't know what you're talking about.{pg}-We are all here because of you.{pg}...
+-There's only one way to leave.{pg}What is this place?{pg}-You have to face what you've done.{pg}I don't know what you're talking about.{pg}-You have to accept it was your fault.{pg}...
 NAME person 3 dialog
 
 DLG l
@@ -14600,28 +15310,20 @@ DLG l
 NAME int3 dialog
 
 DLG m
-I didn't mean to.
+{shk}I didn't mean to!{/shk}
 NAME stuck1 dialog
 
 DLG n
-{shk}IT WAS A MISTAKE!{/shk}
+{shk}I'M NOT A BAD PERSON!{/shk}
 NAME stuck2 dialog
 
 DLG o
-I'm sorry I'm sorry I'm sorry I'm sorry I'm sorry I'm sorry!
+{shk}I'm sorry I'm sorry I'm sorry I'm sorry I'm sorry I'm sorry!{/shk}
 NAME stuck 3 dialog
 
 DLG p
-You cannot change the past, but only you can decide how your future will be like. You can move on, unlike so many other unlucky souls. I had barely just started my life, even the rest of yours would not make up for it.
+You cannot change the past, but only you can decide how your future will be like. {pg}You can move on, unlike so many other unlucky souls. {pg}I had barely just started my life, even the rest of yours would not make up for it. {pg}Continue up to make your choice.
 NAME kids dialog
-
-DLG q
-"""
- (when (player enters "UNVEIL")
-  (followerNow "devil1")
-
-"""
-NAME devil1 dialog
 
 DLG r
 """
@@ -14666,8 +15368,24 @@ DLG v
 """
 NAME devil2 dialog
 
-VAR a
-42
+DLG w
+{wvy}The time to decide your future has arrived.{/wvy}{pg}{wvy}Proceed forward to accept the past and take responsibility.{/wvy}{pg}{wvy}Or avoid the consequences and turn back.{/wvy}
+NAME end dialog
+
+DLG x
+It is easier to forget the past than to face it.
+NAME ending 4
+
+DLG y
+"911, what's your emergency?"
+NAME ending 5
+
+DLG z
+{shk}PLEASE. IT WAS AN ACCIDENT!{/shk}
+NAME stuck dialog
+
+VAR end
+1
 
 TUNE 1
 3d,0,0,0,3d5,0,0,0,3l,0,0,0,3s,0,0,0
@@ -14789,17 +15507,19 @@ NAME pick up key
 ENV 99 65 6 96 152
 BEAT 95 0
 SQR P4
+
+
 </script>
 
   <style>
     html {
-      margin: 0;
-      padding: 0;
+      margin: 0px;
+      padding: 0px;
     }
 
     body {
-      margin: 0;
-      padding: 0;
+      margin: 0px;
+      padding: 0px;
       overflow: hidden;
       background: #ffffff;
     }
@@ -14810,17 +15530,6 @@ SQR P4
       max-width: 100vh;
       margin: auto;
       display: block;
-      touch-action: none;
-      /* fixing touch-input errors in chrome */
-
-      /* sharp pixel edges */
-      /* https://caniuse.com/#search=image-render */
-      -ms-interpolation-mode: nearest-neighbor;
-      /* IE */
-      image-rendering: -moz-crisp-edges;
-      /* FF 6.0+ */
-      image-rendering: pixelated;
-      /* Chrome, Safari */
     }
   </style>
 
@@ -15766,6 +16475,7 @@ SQR P4
 
         // disable sound
         sound.mute();
+
         self._active = false;
       };
 
@@ -16025,15 +16735,6 @@ SQR P4
         }
 
         self._free(tile);
-      };
-
-      this.deleteAllTiles = function () {
-        if (tilePoolStart != null) {
-          for (var i = 0; i < tilePoolSize; i++) {
-            var tile = tilePoolStart + i;
-            this.delete(tile);
-          }
-        }
       };
 
       this.fill = function (block, value) {
@@ -22384,7 +23085,13 @@ SQR P4
       // todo : forceReset option is hacky?
       this.ClearCache = function (forceReset) {
         if (forceReset === undefined || forceReset === true) {
-          bitsy.deleteAllTiles();
+          // delete all tiles from system memory before clearing the cache
+          for (var cacheId in drawingCache.render) {
+            var tiles = drawingCache.render[cacheId];
+            for (var i = 0; i < tiles.length; i++) {
+              bitsy.delete(tiles[i]);
+            }
+          }
         }
 
         drawingCache.render = {};
@@ -27201,8 +27908,8 @@ CHAR 9835
           'GUILT2': { src: './479930__thesoundmakerqueen__satan-sings-a-lullaby.mp3', loop: true, resume: true },
           'GUILT3': { src: './479930__thesoundmakerqueen__satan-sings-a-lullaby.mp3', loop: true, resume: true },
           'FAULT': { src: './fault.mp3', loop: true, resume: true },
-          'HELL': { src: './fault.mp3', loop: true, resume: true },
-          'UNVEIL': { src: './fault.mp3', loop: true, resume: true },
+          'HELL': { src: './HELL.mp3', loop: true, resume: true },
+          'UNVEIL': { src: './HELL.mp3', loop: true, resume: true },
           'CONSIDER': { src: './background.mp3', loop: true, resume: true },
           'END': { src: './background.mp3', loop: true, resume: true },
           // Add more audio files as needed
@@ -27218,8 +27925,8 @@ CHAR 9835
           'FAULT': 'FAULT',
           'END': 'STERILE',
           'CONSIDER': 'STERILE',
-          'HELL': 'FAULT',
-          'UNVEIL': 'FAULT',
+          'HELL': 'UNVEIL',
+          'UNVEIL': 'UNVEIL',
           // Add more room -> audio ID mappings as needed
         },
         silenceId: 'S', // Use this song ID to make a room fall silent.
